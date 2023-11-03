@@ -1,3 +1,8 @@
+"""
+This script wipes the Telegram account including
+all dialogs, saved messages, bots, chat folders, and groups.
+"""
+
 import os
 import dotenv
 from telethon import TelegramClient, functions, errors
