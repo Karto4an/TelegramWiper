@@ -4,14 +4,19 @@ from telethon import TelegramClient, functions, errors
 
 dotenv.load_dotenv()
 
-# Get API ID and API HASH from .env file
-api_id = os.getenv("API_ID")
-api_hash = os.getenv("API_HASH")
-
 # Go to session folder(there are telethon sessions)
 # Log into each session and delete all dms, groups, channels and saved messages.
 
 def wipe_sessions(api_id, api_hash):
+    """
+    Deletes all dialogs, saved messages, bots, chat folders, and leaves all groups
+    for each session in the 'session' folder.
+
+    Args:
+        api_id (str): The API ID for the Telegram API.
+        api_hash (str): The API hash for the Telegram API.
+    """
+
     for session in os.listdir("session"):
         # If extension is .session-journal, delete it, continue to next session
         if session.endswith(".session-journal"):
@@ -77,4 +82,4 @@ def wipe_sessions(api_id, api_hash):
         client.disconnect()
 
 if __name__ == "__main__":
-    wipe_sessions(api_id, api_hash)
+    wipe_sessions(os.getenv("API_ID"), os.getenv("API_HASH"))
