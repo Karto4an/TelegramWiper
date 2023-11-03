@@ -1,7 +1,6 @@
 import os
 import dotenv
-import telethon
-from telethon import TelegramClient, events, sync, functions, errors
+from telethon import TelegramClient, functions, errors
 
 dotenv.load_dotenv()
 
